@@ -1,36 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { SIGNUP_URL } from "@/lib/config";
 
 export default function CTASection() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setStatus("success");
-        setMessage(data.message || "You're on the list!");
-        setEmail("");
-      } else {
-        setStatus("error");
-        setMessage(data.error || "Something went wrong.");
-      }
-    } catch {
-      setStatus("error");
-      setMessage("Network error. Please try again.");
-    }
-  };
 
   return (
     <section
@@ -65,32 +37,13 @@ export default function CTASection() {
           reduced average collection time by 60%.
         </p>
 
-        {/* Email form */}
-        {status === "success" ? (
-          <div className="bg-[#10B981]/20 border border-[#10B981]/40 rounded-2xl p-6 text-[#10B981] font-semibold text-lg">
-            ✓ {message} We&apos;ll be in touch soon!
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your work email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="flex-1 bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-[#10B981] focus:bg-white/15 transition-all text-lg"
-            />
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              className="bg-[#10B981] hover:bg-[#059669] disabled:opacity-70 text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 shadow-xl hover:shadow-[#10B981]/40 hover:-translate-y-0.5 text-lg whitespace-nowrap"
-            >
-              {status === "loading" ? "Joining..." : "Get Started Free"}
-            </button>
-          </form>
-        )}
-
-        {status === "error" && <p className="text-red-400 text-sm mt-3">{message}</p>}
+        {/* CTA */}
+        <a
+          href={SIGNUP_URL}
+          className="inline-block bg-[#10B981] hover:bg-[#059669] text-white font-bold px-10 py-4 rounded-xl transition-all duration-200 shadow-xl hover:shadow-[#10B981]/40 hover:-translate-y-0.5 text-lg"
+        >
+          Get Started Free
+        </a>
 
         <div className="flex flex-wrap justify-center gap-6 mt-6">
           {[

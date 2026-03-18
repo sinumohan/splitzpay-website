@@ -1,37 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { SIGNUP_URL, LOGIN_URL } from "@/lib/config";
 
 export default function Hero() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setStatus("loading");
-
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setStatus("success");
-        setMessage(data.message || "You're on the list!");
-        setEmail("");
-      } else {
-        setStatus("error");
-        setMessage(data.error || "Something went wrong. Please try again.");
-      }
-    } catch {
-      setStatus("error");
-      setMessage("Network error. Please try again.");
-    }
-  };
 
   return (
     <section
@@ -99,38 +70,24 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Email capture */}
-            <div id="trial">
-              {status === "success" ? (
-                <div className="bg-[#10B981]/20 border border-[#10B981]/40 rounded-xl p-4 text-[#10B981] font-medium">
-                  ✓ {message} We'll reach out with early access.
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
-                  <input
-                    type="email"
-                    placeholder="Enter your work email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#10B981] focus:bg-white/15 transition-all"
-                  />
-                  <button
-                    type="submit"
-                    disabled={status === "loading"}
-                    className="bg-[#10B981] hover:bg-[#059669] disabled:opacity-70 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-[#10B981]/30 hover:-translate-y-0.5 whitespace-nowrap"
-                  >
-                    {status === "loading" ? "Starting..." : "Start Free Trial"}
-                  </button>
-                </form>
-              )}
-              {status === "error" && (
-                <p className="text-red-400 text-sm mt-2">{message}</p>
-              )}
-              <p className="text-white/40 text-sm mt-3">
-                14-day free trial · No credit card required · Cancel anytime
-              </p>
+            {/* CTA */}
+            <div id="trial" className="flex flex-col sm:flex-row gap-3">
+              <a
+                href={SIGNUP_URL}
+                className="bg-[#10B981] hover:bg-[#059669] text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg hover:shadow-[#10B981]/30 hover:-translate-y-0.5 text-center"
+              >
+                Start Free Trial — 14 Days Free
+              </a>
+              <a
+                href={LOGIN_URL}
+                className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 text-center"
+              >
+                Sign In
+              </a>
             </div>
+            <p className="text-white/40 text-sm mt-3">
+              No credit card required · Cancel anytime
+            </p>
           </div>
 
           {/* Right: WhatsApp Preview */}

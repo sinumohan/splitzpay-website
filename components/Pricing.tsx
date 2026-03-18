@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SIGNUP_URL } from "@/lib/config";
 
 const plans = [
   {
@@ -203,7 +204,7 @@ export default function Pricing() {
 
               {/* CTA */}
               <a
-                href="#trial"
+                href={SIGNUP_URL}
                 className={`block w-full text-center font-semibold py-3.5 rounded-xl transition-all duration-200 ${
                   plan.highlight
                     ? "bg-[#10B981] hover:bg-[#059669] text-white shadow-lg hover:shadow-[#10B981]/30"

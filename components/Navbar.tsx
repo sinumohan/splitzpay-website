@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { SIGNUP_URL, LOGIN_URL } from "@/lib/config";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -69,7 +70,7 @@ export default function Navbar() {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="#pricing"
+              href={LOGIN_URL}
               className={`text-sm font-medium transition-colors ${
                 scrolled ? "text-[#475569] hover:text-[#0F172A]" : "text-white/80 hover:text-white"
               }`}
@@ -77,7 +78,7 @@ export default function Navbar() {
               Sign In
             </a>
             <a
-              href="#trial"
+              href={SIGNUP_URL}
               className="bg-[#10B981] hover:bg-[#059669] text-white text-sm font-semibold px-5 py-2 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
               Start Free Trial
@@ -131,7 +132,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#trial"
+              href={SIGNUP_URL}
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center bg-[#10B981] text-white font-semibold py-3 rounded-lg hover:bg-[#059669] transition-colors"
             >
