@@ -68,3 +68,19 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f8fafc; }
 ::-webkit-scrollbar-thumb { background: #10B981; border-radius: 3px; }
+
+/* Privacy policy prose */
+.prose-policy {
+  color: #334155;
+  line-height: 1.75;
+  font-size: 0.9375rem;
+}
+.prose-policy p { margin-bottom: 1rem; }
+.prose-policy ul { list-style: none; padding: 0; margin-bottom: 1rem; }
+.prose-policy ul li { padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem; }
+.prose-policy ul li::before { content: "•"; position: absolute; left: 0; color: #10B981; font-weight: bold; }
+.prose-policy a { color: #10B981; text-decoration: underline; text-underline-offset: 2px; }
+.prose-policy a:hover { color: #059669; }
+.prose-policy strong { color: #0F172A; font-weight: 600; }
+.contact-block { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+.contact-block p { margin-bottom: 0.25rem; }

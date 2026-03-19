@@ -92,7 +92,7 @@ export default function Footer() {
                 { label: "About", href: "#" },
                 { label: "Blog", href: "#" },
                 { label: "Partners", href: "#" },
-                { label: "Privacy Policy", href: "#" },
+                { label: "Privacy Policy", href: "/privacy" },
                 { label: "Terms of Service", href: "#" },
                 { label: "Refund Policy", href: "#" },
               ].map((item) => (
