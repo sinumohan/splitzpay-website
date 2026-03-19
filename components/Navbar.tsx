@@ -4,6 +4,17 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { SIGNUP_URL, LOGIN_URL } from "@/lib/config";
 
+/* SP chat-bubble logo — matches the brand identity from the logo image */
+function SpLogo({ size = 36 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="32" height="28" rx="7" fill="#4A9B72" />
+      <polygon points="5,29 14,29 8,38" fill="#4A9B72" />
+      <text x="16" y="20" textAnchor="middle" dominantBaseline="middle" fill="white" fontFamily="Inter, Helvetica, Arial, sans-serif" fontWeight="700" fontSize="11">SP</text>
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,31 +29,26 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
+          ? "bg-white/96 backdrop-blur-md shadow-sm border-b border-gray-100"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-[#10B981] flex items-center justify-center shadow-md group-hover:bg-[#059669] transition-colors">
-              <span className="text-white font-bold text-sm">SP</span>
-            </div>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <SpLogo size={38} />
             <div>
               <span
-                className={`font-bold text-lg leading-none ${
-                  scrolled ? "text-[#0F172A]" : "text-white"
+                className={`font-bold text-xl leading-none tracking-tight ${
+                  scrolled ? "text-[#0D1F35]" : "text-white"
                 }`}
               >
-                SplitzPay
+                <span>Splitz</span><span className={scrolled ? "text-[#4A9B72]" : "text-[#7DD4A8]"}>Pay</span>
               </span>
-              <span
-                className={`block text-[10px] font-medium leading-none ${
-                  scrolled ? "text-[#10B981]" : "text-[#10B981]"
-                }`}
-              >
-                WhatsApp Invoice Chaser
+              <span className="block text-[9px] font-bold tracking-[0.15em] uppercase leading-none mt-0.5 text-[#4A9B72]">
+                Chase Less. Collect More.
               </span>
             </div>
           </Link>
@@ -58,8 +64,8 @@ export default function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium hover:text-[#10B981] transition-colors ${
-                  scrolled ? "text-[#475569]" : "text-white/80"
+                className={`text-sm font-medium hover:text-[#4A9B72] transition-colors ${
+                  scrolled ? "text-[#4A6070]" : "text-white/80"
                 }`}
               >
                 {item.label}
@@ -72,14 +78,14 @@ export default function Navbar() {
             <a
               href={LOGIN_URL}
               className={`text-sm font-medium transition-colors ${
-                scrolled ? "text-[#475569] hover:text-[#0F172A]" : "text-white/80 hover:text-white"
+                scrolled ? "text-[#4A6070] hover:text-[#0D1F35]" : "text-white/80 hover:text-white"
               }`}
             >
               Sign In
             </a>
             <a
               href={SIGNUP_URL}
-              className="bg-[#10B981] hover:bg-[#059669] text-white text-sm font-semibold px-5 py-2 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="bg-[#4A9B72] hover:bg-[#3A7D5A] text-white text-sm font-semibold px-5 py-2 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
               Start Free Trial
             </a>
@@ -92,21 +98,16 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <div className="space-y-1.5">
-              <span
-                className={`block w-6 h-0.5 transition-all duration-300 ${
-                  scrolled ? "bg-[#0F172A]" : "bg-white"
-                } ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-              />
-              <span
-                className={`block w-6 h-0.5 transition-all duration-300 ${
-                  scrolled ? "bg-[#0F172A]" : "bg-white"
-                } ${menuOpen ? "opacity-0" : ""}`}
-              />
-              <span
-                className={`block w-6 h-0.5 transition-all duration-300 ${
-                  scrolled ? "bg-[#0F172A]" : "bg-white"
-                } ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-              />
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  className={`block w-6 h-0.5 transition-all duration-300 ${
+                    scrolled ? "bg-[#0D1F35]" : "bg-white"
+                  } ${i === 0 && menuOpen ? "rotate-45 translate-y-2" : ""} ${
+                    i === 1 && menuOpen ? "opacity-0" : ""
+                  } ${i === 2 && menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+                />
+              ))}
             </div>
           </button>
         </div>
@@ -126,7 +127,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="block text-[#475569] font-medium py-2 hover:text-[#10B981]"
+                className="block text-[#4A6070] font-medium py-2 hover:text-[#4A9B72]"
               >
                 {item.label}
               </a>
@@ -134,7 +135,7 @@ export default function Navbar() {
             <a
               href={SIGNUP_URL}
               onClick={() => setMenuOpen(false)}
-              className="block w-full text-center bg-[#10B981] text-white font-semibold py-3 rounded-lg hover:bg-[#059669] transition-colors"
+              className="block w-full text-center bg-[#4A9B72] text-white font-semibold py-3 rounded-lg hover:bg-[#3A7D5A] transition-colors"
             >
               Start Free Trial — 14 Days Free
             </a>

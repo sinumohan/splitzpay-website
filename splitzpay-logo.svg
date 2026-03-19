@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 68" width="280" height="68" role="img" aria-label="SplitzPay logo">
+  <title>SplitzPay — WhatsApp Invoice Chaser</title>
+  <desc>SplitzPay logo mark with chat bubble icon and wordmark</desc>
+
+  <!-- ── ICON MARK: Chat-Bubble SP Monogram ── -->
+  <!-- Rounded square background -->
+  <rect x="0" y="0" width="58" height="53" rx="13" fill="#10B981"/>
+  <!-- Tail of the chat bubble (bottom-left pointing) -->
+  <polygon points="8,53 8,64 22,53" fill="#10B981"/>
+  <!-- SP Text -->
+  <text
+    x="29"
+    y="35"
+    text-anchor="middle"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-weight="900"
+    font-size="24"
+    letter-spacing="-1"
+    fill="#ffffff"
+  >SP</text>
+
+  <!-- ── WORDMARK: SplitzPay ── -->
+  <text
+    x="74"
+    y="38"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-weight="900"
+    font-size="32"
+    letter-spacing="-0.5"
+    fill="#0F172A"
+  >SplitzPay</text>
+
+  <!-- ── SUB-LABEL: WhatsApp Invoice Chaser ── -->
+  <text
+    x="74"
+    y="54"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-weight="500"
+    font-size="12"
+    letter-spacing="0.2"
+    fill="#10B981"
+  >WhatsApp Invoice Chaser</text>
+
+</svg>

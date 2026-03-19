@@ -49,42 +49,38 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="py-20 bg-[#E8F7EF]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-14">
-          <span className="inline-block bg-[#D1FAE5] text-[#059669] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-[#D0F0E0] text-[#3A7D5A] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             FAQ
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0D1F35] mb-4">
             Frequently asked questions
           </h2>
-          <p className="text-[#475569]">
-            Everything you need to know before getting started.
-          </p>
+          <p className="text-[#4A6070]">Everything you need to know before getting started.</p>
         </div>
 
-        {/* Accordion */}
         <div className="space-y-3">
           {faqs.map((faq, idx) => (
             <div
               key={idx}
               className={`border rounded-xl overflow-hidden transition-all ${
                 open === idx
-                  ? "border-[#10B981]/40 shadow-sm"
-                  : "border-gray-100 hover:border-gray-200"
+                  ? "border-[#4A9B72]/50 shadow-sm bg-white"
+                  : "border-[#C0E8D0] bg-white hover:border-[#4A9B72]/40"
               }`}
             >
               <button
                 className="w-full flex items-center justify-between p-5 text-left"
                 onClick={() => setOpen(open === idx ? null : idx)}
               >
-                <span className="font-semibold text-[#0F172A] pr-4">{faq.q}</span>
+                <span className="font-semibold text-[#0D1F35] pr-4">{faq.q}</span>
                 <span
-                  className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all ${
+                  className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-lg font-light transition-all ${
                     open === idx
-                      ? "bg-[#10B981] text-white rotate-45"
-                      : "bg-gray-100 text-gray-500"
+                      ? "bg-[#4A9B72] text-white rotate-45"
+                      : "bg-[#D0F0E0] text-[#4A9B72]"
                   }`}
                 >
                   +
@@ -92,22 +88,19 @@ export default function FAQ() {
               </button>
               {open === idx && (
                 <div className="px-5 pb-5">
-                  <p className="text-[#475569] leading-relaxed">{faq.a}</p>
+                  <p className="text-[#4A6070] leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>
           ))}
         </div>
 
-        {/* Still have questions */}
-        <div className="mt-10 bg-[#F8FAFC] border border-gray-100 rounded-2xl p-6 text-center">
-          <p className="text-[#0F172A] font-semibold mb-2">Still have questions?</p>
-          <p className="text-[#475569] text-sm mb-4">
-            Write to us and we typically respond within a few hours.
-          </p>
+        <div className="mt-10 bg-white border border-[#C0E8D0] rounded-2xl p-6 text-center">
+          <p className="text-[#0D1F35] font-semibold mb-2">Still have questions?</p>
+          <p className="text-[#4A6070] text-sm mb-4">We typically respond within a few hours.</p>
           <a
             href="mailto:hello@splitzpay.app"
-            className="inline-flex items-center gap-2 bg-[#0F172A] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#1e293b] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#0D1F35] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[#1a3550] transition-colors"
           >
             Contact Support
           </a>
