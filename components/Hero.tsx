@@ -8,7 +8,7 @@ const cardVariants = {
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.35 + i * 0.12 },
+    transition: { duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number], delay: 0.35 + i * 0.12 },
   }),
 };
 
@@ -43,7 +43,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.1 }}
+          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number], delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.05] tracking-tight"
         >
           One platform.
