@@ -74,7 +74,7 @@ export default function Pricing() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="inline-block bg-[#D0F0E0] text-[#3A7D5A] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            Pricing
+            SplitzPay Biz Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#0D1F35] mb-4">
             Simple, transparent pricing.

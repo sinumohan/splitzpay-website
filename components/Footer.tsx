@@ -39,21 +39,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Product */}
+          {/* SplitzPay Biz */}
           <div>
-            <h4 className="font-semibold mb-4 text-xs text-white/50 uppercase tracking-widest">
-              Product
+            <h4 className="font-semibold mb-4 text-xs text-emerald-500/70 uppercase tracking-widest">
+              SplitzPay Biz
             </h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Features", href: "#features" },
-                { label: "How It Works", href: "#how-it-works" },
-                { label: "Integrations", href: "#integrations" },
+                { label: "Features", href: "#biz" },
                 { label: "Pricing", href: "#pricing" },
-                { label: "Changelog", href: "#" },
+                { label: "Integrations", href: "#biz" },
+                { label: "For CA Firms", href: "#pricing" },
+                { label: "Sign In", href: "https://app.splitzpay.app/login" },
               ].map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-white/45 hover:text-[#4A9B72] text-sm transition-colors">
+                  <a href={item.href} className="text-white/45 hover:text-emerald-400 text-sm transition-colors">
                     {item.label}
                   </a>
                 </li>
@@ -61,21 +61,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Use Cases */}
+          {/* SplitzPay Go */}
           <div>
-            <h4 className="font-semibold mb-4 text-xs text-white/50 uppercase tracking-widest">
-              Use Cases
+            <h4 className="font-semibold mb-4 text-xs text-teal-500/70 uppercase tracking-widest">
+              SplitzPay Go
             </h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Freelancers", href: "#" },
-                { label: "Small Businesses", href: "#" },
-                { label: "CA Firms", href: "#" },
-                { label: "Tally Users", href: "#" },
-                { label: "Zoho Books Users", href: "#" },
+                { label: "Features", href: "#go" },
+                { label: "Group Splitting", href: "#go" },
+                { label: "PayScore", href: "#go" },
+                { label: "Document Vault", href: "#go" },
+                { label: "Join Waitlist", href: "#go" },
               ].map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-white/45 hover:text-[#4A9B72] text-sm transition-colors">
+                  <a href={item.href} className="text-white/45 hover:text-teal-400 text-sm transition-colors">
                     {item.label}
                   </a>
                 </li>

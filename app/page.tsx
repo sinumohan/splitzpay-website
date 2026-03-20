@@ -1,13 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ProblemSection from "@/components/ProblemSection";
-import HowItWorks from "@/components/HowItWorks";
-import Features from "@/components/Features";
-import Integrations from "@/components/Integrations";
+import BizSection from "@/components/BizSection";
+import GoSection from "@/components/GoSection";
+import NetworkSection from "@/components/NetworkSection";
 import Pricing from "@/components/Pricing";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,14 +11,10 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <ProblemSection />
-      <HowItWorks />
-      <Features />
-      <Integrations />
+      <BizSection />
+      <GoSection />
+      <NetworkSection />
       <Pricing />
-      <Testimonials />
-      <FAQ />
-      <CTASection />
       <Footer />
     </main>
   );

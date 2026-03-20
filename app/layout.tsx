@@ -3,24 +3,24 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SplitzPay — Get Paid. On Time. Every Time.",
+  title: "SplitzPay — India's Payments Platform",
   description:
-    "SplitzPay automates WhatsApp invoice reminders for Indian SMBs. Stop chasing clients for payment. Connect Tally, Zoho Books, or QuickBooks and let SplitzPay handle follow-ups — with Razorpay payment links built in.",
+    "SplitzPay Biz automates WhatsApp invoice reminders for Indian SMBs. SplitzPay Go lets you split expenses, track debts, and build your PayScore. One platform. Two products.",
   keywords:
-    "invoice reminder whatsapp india, automated invoice reminder, whatsapp invoice chaser, tally invoice automation, zoho invoice reminder, razorpay payment link, accounts receivable automation india",
+    "splitzpay biz, splitzpay go, invoice reminder whatsapp india, group expense splitting india, payscore, razorpay payment link, accounts receivable automation india, tally invoice automation",
   openGraph: {
-    title: "SplitzPay — Get Paid. On Time. Every Time.",
+    title: "SplitzPay — India's Payments Platform",
     description:
-      "Automate WhatsApp payment reminders for your Indian business. Integrates with Tally, Zoho Books & QuickBooks. Razorpay payment links included.",
+      "SplitzPay Biz: automate invoice collections. SplitzPay Go: split expenses and pay clean. Built for how India actually pays.",
     url: "https://splitzpay.app",
     siteName: "SplitzPay",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SplitzPay — Stop Chasing Invoices",
+    title: "SplitzPay — One Platform. Two Products.",
     description:
-      "Send automated WhatsApp payment reminders to clients. Built for Indian SMBs. Starting at ₹499/month.",
+      "SplitzPay Biz for businesses. SplitzPay Go for everyone. India's payments platform.",
   },
   metadataBase: new URL("https://splitzpay.app"),
 };
