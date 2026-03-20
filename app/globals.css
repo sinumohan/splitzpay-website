@@ -5,7 +5,6 @@
 :root {
   --background: #ffffff;
   --foreground: #0D1F35;
-  /* New brand palette from logo */
   --brand-green: #4A9B72;
   --brand-green-dark: #3A7D5A;
   --brand-green-light: #5BB584;
@@ -16,9 +15,7 @@
   --brand-slate: #4A6070;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--background);
@@ -27,46 +24,132 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── Keyframes ─────────────────────────────────────── */
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50%       { transform: translateY(-10px); }
 }
 
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(74, 155, 114, 0.5); }
+  0%   { box-shadow: 0 0 0 0 rgba(74, 155, 114, 0.5); }
   100% { box-shadow: 0 0 0 20px rgba(74, 155, 114, 0); }
 }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
+/* Slow drifting orb */
+@keyframes drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(24px, -18px) scale(1.04); }
+  66%  { transform: translate(-16px, 14px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 2s ease-out infinite;
+/* Shimmer sweep — used on stat numbers & highlights */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
 }
+
+/* Horizontal scan line */
+@keyframes scan {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  8%   { opacity: 0.6; }
+  92%  { opacity: 0.6; }
+  100% { transform: translateX(200%); opacity: 0; }
+}
+
+/* Soft glow breathe */
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.7; }
+}
+
+/* Node pulse ring for NetworkSection */
+@keyframes node-ping {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  80%  { transform: scale(1.8); opacity: 0; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ── Utility classes ───────────────────────────────── */
+
+.animate-float       { animation: float 4s ease-in-out infinite; }
+.animate-pulse-ring  { animation: pulse-ring 2s ease-out infinite; }
+.animate-drift       { animation: drift 12s ease-in-out infinite; }
+.animate-drift-slow  { animation: drift 18s ease-in-out infinite reverse; }
+.animate-glow        { animation: glow-breathe 3s ease-in-out infinite; }
+.animate-node-ping   { animation: node-ping 2s ease-out infinite; }
 
 .gradient-text {
-  background: linear-gradient(135deg, #4A9B72, #3A7D5A);
+  background: linear-gradient(135deg, #10B981, #059669);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f0faf5; }
-::-webkit-scrollbar-thumb { background: #4A9B72; border-radius: 3px; }
+/* Animated shimmer text — used on stat values */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #10B981 0%,
+    #6EE7B7 40%,
+    #10B981 60%,
+    #059669 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.shimmer-text-teal {
+  background: linear-gradient(
+    90deg,
+    #14B8A6 0%,
+    #5EEAD4 40%,
+    #14B8A6 60%,
+    #0D9488 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Scan line overlay — add to a relative container */
+.scan-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(16,185,129,0.06), transparent);
+  animation: scan 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Card ambient glow on hover */
+.card-glow-emerald:hover {
+  box-shadow: 0 0 40px -8px rgba(16, 185, 129, 0.25),
+              0 0 0 1px rgba(16, 185, 129, 0.15);
+}
+.card-glow-teal:hover {
+  box-shadow: 0 0 40px -8px rgba(20, 184, 166, 0.25),
+              0 0 0 1px rgba(20, 184, 166, 0.15);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #0F172A; }
+::-webkit-scrollbar-thumb { background: #10B981; border-radius: 3px; }
 
 /* Privacy policy prose */
-.prose-policy {
-  color: #334155;
-  line-height: 1.75;
-  font-size: 0.9375rem;
-}
+.prose-policy { color: #334155; line-height: 1.75; font-size: 0.9375rem; }
 .prose-policy p { margin-bottom: 1rem; }
 .prose-policy ul { list-style: none; padding: 0; margin-bottom: 1rem; }
 .prose-policy ul li { padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem; }
